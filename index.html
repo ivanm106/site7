@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Горизонтальная галерея</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .gallery-container {
+            max-width: 450px;
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: calc(100%); /* По умолчанию 3 изображения на странице */
+            flex-shrink: 0;
+            object-fit: cover; /* Изображения не будут искажаться */
+            height: auto;
+            aspect-ratio: 864/1208;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 5px;
+        }
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .arrow.left {
+            left: 10px;
+        }
+        .arrow.right {
+            right: 10px;
+        }
+        .pager {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pager span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .pager span.current {
+            background-color: #333;
+            color: white;
+            border-color: #333;
+        }
+        .pager span:hover {
+            background-color: #bbb;
+        }
+          @media (max-width: 450px) {
+            .gallery {
+                flex-direction: row;
+            }
+            .gallery-container {
+                max-width: 100%;
+            }
+            .gallery img {
+                max-width: 100%;
+                height: auto;
+                aspect-ratio: 864/1208; /* Квадратная пропорция сохраняется */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <button class="arrow left" onclick="moveSlider(-1)">&#8592;</button>
+        <div class="gallery" id="gallery">
+            <img src="webSports/Stephen Curry Poster - Iconic Basketball Wall Art for Your Home.jpeg" alt="Image 1">
+            <img src="webSports/Anthony Edwards Poster - Iconic Basketball Wall Art for Your Home.jpeg" alt="Image 2">
+            <img src="webSports/Lionel Messi Poster - Iconic Soccer Wall Art for Your Home.jpeg" alt="Image 3">
+            <img src="webSports/Cristiano Ronaldo Poster.jpeg" alt="Image 4">
+            <img src="webSports/Muhammad Ali - Boxing Legend -  Exclusively Made By Mashed Designs.jpeg" alt="Image 5">
+            <img src="webSports/mike.jpg" alt="Image 6">
+            <img src="webSports/Снимок экрана 2024-12-19 в 12.56.40.png" alt="Image 7">
+            <img src="webSports/Снимок экрана 2024-12-19 в 12.57.35.png" alt="Image 8">
+        </div>
+        <button class="arrow right" onclick="moveSlider(1)">&#8594;</button>
+    </div>
+    <div class="pager" id="pager"></div>
+    <script src="style.js"></script>
+</body>
+</html>
